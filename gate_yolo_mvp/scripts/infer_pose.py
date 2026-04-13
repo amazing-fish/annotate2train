@@ -13,6 +13,10 @@ import yaml
 IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".bmp", ".webp"}
 
 
+def should_flag_for_review(confidence: float, angle_jump_deg: float, conf_threshold: float = 0.5, jump_threshold: float = 20.0) -> bool:
+    return confidence < conf_threshold or angle_jump_deg > jump_threshold
+
+
 def normalize_angle_deg(angle: float) -> float:
     angle %= 360.0
     if angle < 0:
