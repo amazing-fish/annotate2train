@@ -1,0 +1,21 @@
+# 业务角度配置
+# 优先级：closed_reference_json > closed_reference_angle_deg
+closed_reference_json: data/reference/closed_ref.json
+closed_reference_angle_deg: null
+
+# 状态阈值（单位：度）
+closed_threshold_deg: 10.0
+open_threshold_deg: 75.0
+
+# 数据与后处理
+class_name: gate_arm
+bbox_pad_px: 24
+min_bbox_size_px: 32
+single_gate_only: true
+
+# 置信度阈值
+predict_conf: 0.25
+
+# 说明：
+# 1) 如果 closed_reference_json 存在，会从其中读取 pivot/tip 形成“闭合基准方向”。
+# 2) 若没有 reference json，则使用 closed_reference_angle_deg 作为闭合基准角（图像坐标系，右向为0度，逆时针为正）。
