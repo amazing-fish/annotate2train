@@ -66,7 +66,9 @@ def find_pairs(image_dir: Path, ann_dir: Path) -> List[Tuple[Path, Path]]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="Legacy YOLO dataset builder. Event-grouped dataset versions now live under app.pipelines."
+    )
     parser.add_argument("--image-dir", type=Path, required=True)
     parser.add_argument("--ann-dir", type=Path, required=True)
     parser.add_argument("--out-dir", type=Path, default=Path("data/yolo_pose"))
